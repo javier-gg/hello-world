@@ -1,0 +1,23 @@
+---
+title: "test"
+output: html_document
+---
+
+```{r setup, include=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## R Markdown
+```{r cars, message=FALSE}
+library(tidyverse)
+library(datasauRus)
+
+data(datasaurus_dozen)
+head(datasaurus_dozen)
+
+dino_data<-datasaurus_dozen %>% filter(dataset == "dino")
+
+ggplot(data=dino_data,mapping=aes(x=x,y=y))+geom_point()
+
+dino_data %>% summarize(r=cor(x,y))
+```
